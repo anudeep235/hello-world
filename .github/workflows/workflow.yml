@@ -2,7 +2,7 @@ name: Hello world workflow
 on: 
   push:
     branches:
-       main:
+      - main:
 jobs:
    hello-world:
         runs-on: ubuntu-latest
