@@ -8,7 +8,7 @@ jobs:
   hello-world:
      runs-on: ubuntu-latest
      steps:
-       - name: Display Hello world
+       - name: Display Hello world1
          run: echo 'hello world'
      
      
