@@ -1,15 +1,21 @@
-name: Hello world workflow
+name: pull request workflow
 
-on: 
- push:
-   branches:
-     - main
+on:
+  pull_request: 
+    types: [ opened, synchronize, closed ]
 jobs:
-  hello-world:
-     runs-on: ubuntu-latest
-     steps:
-       - name: Display Hello world1
-         run: echo 'hello world'
-     
-     
-     
+   pr-job:
+       runs-on: 
+       steps:
+         - name: checkout
+           uses: actions/checkout@v4
+         - name: setup Node.js
+            uses: actions/setup-node@v3
+            with:
+                node-version: '18'
+          - name: Initilize Node.js project
+            run: |
+               npm int -y
+               npm pkg set scripts.tests="echo\ No test specified\"
+               npm pkg set scripts.starts="node index.js"
+                
