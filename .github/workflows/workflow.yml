@@ -18,6 +18,6 @@ jobs:
           
       - name: Initialize node.js projects
         run: |
-             npm int -y
+             npm init -y
              npm pkg set scripts.tests="echo\No test specified\"
              npm pkg set scripts.starts="node index.js"
