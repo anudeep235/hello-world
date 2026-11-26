@@ -1,23 +1,24 @@
 name: Hello world workflow
 
 on:
-  pull_request: 
-    types: [ opened, synchronize, closed ]
+  pull_request:
+    types: [opened, synchronize, closed]
 
 jobs:
   pr-job:
     runs-on: ubuntu-latest
+
     steps:
-      - name: checkout code
+      - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: setup Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '18'
-          
-      - name: Initialize node.js projects
+
+      - name: Initialize Node.js project
         run: |
-             npm init -y
-             npm pkg set scripts.tests="echo\No test specified\"
-             npm pkg set scripts.starts="node index.js"
+          npm init -y
+          npm pkg set 'scripts.test=echo "No test specified"'
+          npm pkg set 'scripts.start=node index.js'
