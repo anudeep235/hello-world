@@ -5,16 +5,17 @@ on:
     types: [ opened, synchronize, closed ]
 jobs:
    pr-job:
-       runs-on: 
+       runs-on: ubuntu-latest
        steps:
          - name: checkout
            uses: actions/checkout@v4
+           
          - name: setup Node.js
-            uses: actions/setup-node@v3
-            with:
+           uses: actions/setup-node@v4
+           with:
                 node-version: '18'
-          - name: Initilize Node.js project
-            run: |
+           - name: Initilize Node.js project
+             run: |
                npm int -y
                npm pkg set scripts.tests="echo\ No test specified\"
                npm pkg set scripts.starts="node index.js"
