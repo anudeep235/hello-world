@@ -1,11 +1,18 @@
 name: Manual Workflow dispatch
 on:
   workflow_dispatch: 
+   inputs:
+    environments:
+      description: 'selected environment'
+      required:
+      default: 'dev'
+       type: choice
+       options:
+           - dev
+           - test
 jobs:
-   run-manually:
-      runs-on: ubuntu-latest
-      steps:
-        - name: echo message
-          run: echo "This is workflow-dispacth.yml"
-  
-  
+   runs-manually:
+       runs-on: ubuntu-latest
+       steps:
+          - name: echo message
+            run: echo "This is workflow was triggred manually using workflow-dispatch."
