@@ -1,18 +1,23 @@
 name: Manual Workflow dispatch
+
 on:
-  workflow_dispatch: 
-   inputs:
-    environments:
-      description: 'selected environment'
-      required: true
-      default: 'dev'
-       type: choice
-       options:
-           - dev
-           - test
+  workflow_dispatch:
+    inputs:
+      environments:
+        description: 'Select environment'
+        required: true
+        default: 'dev'
+        type: choice
+        options:
+          - dev
+          - test
+
 jobs:
-   runs-manually:
-       runs-on: ubuntu-latest
-       steps:
-          - name: echo message
-            run: echo "This is workflow was triggred manually using workflow-dispatch."
+  runs-manually:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo message
+        run: echo "This workflow was triggered manually using workflow_dispatch."
+
+      - name: Display selected environment
+        run: echo "Selected environment is ${{ inputs.environments }}"
