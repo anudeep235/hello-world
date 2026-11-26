@@ -22,3 +22,7 @@ jobs:
           npm init -y
           npm pkg set 'scripts.test=echo "No test specified"'
           npm pkg set 'scripts.start=node index.js'
+          
+      - name:  print the data
+        run: echo "Hello world"
+         
